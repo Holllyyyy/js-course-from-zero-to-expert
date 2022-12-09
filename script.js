@@ -1,6 +1,3 @@
-#The first challenge- Guess my number
-
-```js 
 'use strict';
 
 let secretNumber = Math.trunc(Math.random() * 20) + 1; // trunc just give us integer, and math.random give us rqndom number from 0 to 20.
@@ -103,4 +100,3 @@ document.querySelector('.again').addEventListener('click', function(){
    document.querySelector('body').style.backgroundColor="#222";
    document.querySelector('.number').style.width="15rem"
 })
-```
