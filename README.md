@@ -1,4 +1,4 @@
-#The Second challenge- Modal
+### The Second challenge- Modal
 
 
 We got HTML and CSS done already, where in HTML we have 3 buttons show modal 1, 2 and 3. After that, we have div with class modal and hidden. Div contains button with class close-modal, 'h1' and 'p' after this one we have another div with classes overlay and hidden.
