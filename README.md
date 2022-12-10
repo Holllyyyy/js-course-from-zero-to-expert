@@ -76,21 +76,26 @@ document.querySelector('.score').textContent = 0;
 }//when we reach to 0. this is text what we get.
 }
 })
-//old code before DRY principle
-// // when is too low
-// else if (guess < secretNumber) {
-// if (score > 1) {
-// document.querySelector('.message').textContent = 'too low'
-// score = score - 1;//score--
-// document.querySelector('.score').textContent = score;
+```
+The old code before DRY principle
 
-    //     } else {
-    //         document.querySelector('.message').textContent = 'you lost the game '
-    //         document.querySelector('.score').textContent = 0;
-    //     }
-    // }
+```
+// when is too low
+ else if (guess < secretNumber) {
+if (score > 1) {
+document.querySelector('.message').textContent = 'too low'
+score = score - 1;//score--
+document.querySelector('.score').textContent = score;
+    } else {
+ document.querySelector('.message').textContent = 'you lost the game '
+ document.querySelector('.score').textContent = 0;
+}
+}
+```
 
-// n here we want to use again event listener but on button again and make refresh our page, and back all how it was before
+Here we want to use again event listener but on button again and make refresh our page, and back all how it was before.
+
+```
 document.querySelector('.again').addEventListener('click', function(){
 
      score = 20;//state variable as secretNumber
@@ -104,5 +109,4 @@ document.querySelector('.guess').value='';
 document.querySelector('body').style.backgroundColor="#222";
 document.querySelector('.number').style.width="15rem"
 })
-
 ```
