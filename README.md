@@ -96,8 +96,8 @@ document.querySelector('.score').textContent = score;
 Here we want to use again event listener but on button again and make refresh our page, and back all how it was before.
 
 ```
-document.querySelector('.again').addEventListener('click', function(){
 
+     document.querySelector('.again').addEventListener('click', function(){
      score = 20;//state variable as secretNumber
      secretNumber = Math.trunc(Math.random() * 20) + 1;
      displayMessage("Start guessing . . .")
