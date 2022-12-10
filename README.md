@@ -45,7 +45,7 @@ We use our function displayMessage and pass text inside string. This is how look
          ```
          document.querySelector('.message').textContent = 'correct number'
 
-```
+````
 
     This is just number random what we created at the start. Every time gonna be different, that's how we using to change style. Always '.style' and for example here we have background-color in CSS here in JS we just use camelCase, so we write all together, after we added string of color we wanted for our background  'document.querySelector('body').style.backgroundColor='#60B347' '.
     Same process is for width to add 'document.querySelector('.number').style.width='30rem' ', because we always wanna track our highscore, we needed to add this condition.
@@ -60,29 +60,30 @@ document.querySelector('.highscore').textContent=highscore;// as we can see here
         //not the same as random number what we get we have two cases high or low
 else if (guess !==secretNumber){
     if (score > 1) {
-        
+
     ```
     We needed to add to be greater than 1. First we did ''document.querySelector('.message').textContent = guess > secretNumber ? 'too high' : "Too Low";''. We took message and added text  than we said : if guess (number in input) is greater than secret number, text should be too high otherwise too low. But we have to always care about DRY principle(don't repeat yourself) so we used our function again n condition n make one line of code.
 
-```
+````
+
 displayMessage(guess > secretNumber ? 'Too high' : "Too Low")
 score--;//score = score - 1;
 document.querySelector('.score').textContent = score;
-    } else {
-        // document.querySelector('.message').textContent =
-        //  'you lost the game '
-        displayMessage('You lost the game')
-        document.querySelector('.score').textContent = 0;
-    }//when we reach to 0. this is text what we get.
+} else {
+// document.querySelector('.message').textContent =
+// 'you lost the game '
+displayMessage('You lost the game')
+document.querySelector('.score').textContent = 0;
+}//when we reach to 0. this is text what we get.
 }
 })
-       //old code before DRY principle
-    //     // when is too low
-    //  else if (guess < secretNumber) {
-    //     if (score > 1) {
-    //         document.querySelector('.message').textContent = 'too low'
-    //         score = score - 1;//score--
-    //         document.querySelector('.score').textContent = score;
+//old code before DRY principle
+// // when is too low
+// else if (guess < secretNumber) {
+// if (score > 1) {
+// document.querySelector('.message').textContent = 'too low'
+// score = score - 1;//score--
+// document.querySelector('.score').textContent = score;
 
     //     } else {
     //         document.querySelector('.message').textContent = 'you lost the game '
@@ -96,12 +97,15 @@ document.querySelector('.again').addEventListener('click', function(){
      score = 20;//state variable as secretNumber
      secretNumber = Math.trunc(Math.random() * 20) + 1;
 
-//    document.querySelector('.message').textContent="Start guessing..."
-    displayMessage("Start guessing . . .")
-   document.querySelector('.score').textContent=score;
-   document.querySelector('.number').textContent="?"
-   document.querySelector('.guess').value='';
-   document.querySelector('body').style.backgroundColor="#222";
-   document.querySelector('.number').style.width="15rem"
+// document.querySelector('.message').textContent="Start guessing..."
+displayMessage("Start guessing . . .")
+document.querySelector('.score').textContent=score;
+document.querySelector('.number').textContent="?"
+document.querySelector('.guess').value='';
+document.querySelector('body').style.backgroundColor="#222";
+document.querySelector('.number').style.width="15rem"
 })
+
+```
+
 ```
