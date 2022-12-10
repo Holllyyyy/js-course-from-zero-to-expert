@@ -1,62 +1,49 @@
 'use strict';
 
-let secretNumber = Math.trunc(Math.random() * 20) + 1; // trunc just give us integer, and math.random give us rqndom number from 0 to 20.
-let score = 20;//state variable as secret number
-let highscore = 0;
-const displayMessage = function (message) {
-    document.querySelector('.message').textContent = message;
+const modal=document.querySelector('.modal');
+const overlay=document.querySelector('.overlay')
+const btn=document.querySelector('.close-modal')
+const btns=document.querySelectorAll('.show-modal')
+//console.log(btns);
+
+
+const openModal=function(){
+  modal.classList.remove('hidden')
+  overlay.classList.remove('hidden')
+}
+const closeModal=function(){
+modal.classList.add('hidden')
+overlay.classList.add('hidden')
 }
 
-document.querySelector('.check').addEventListener('click', function () {
-    const guess = Number(document.querySelector('.guess').value)
 
-    //   ***WHEN NO INPUT****
+for(let i=0; i<btns.length; i++){
+  btns[i].addEventListener('click', openModal)
+  //  console.log('Btn clicked')
+    // modal.classList.remove('hidden')
+    // overlay.classList.remove('hidden')
 
-    if (!guess) {
-        displayMessage('No number')
+// btn.addEventListener('click', function(){
+//   modal.classList.add('hidden')
+//   overlay.classList.add('hidden')
+// })
+// overlay.addEventListener('click', function(){
+//     modal.classList.add('hidden')
+//     overlay.classList.add('hidden')
+// })
+btn.addEventListener('click', closeModal)
+overlay.addEventListener('click', closeModal)
 
-        //  ***WHEN SAME ****
+//global events are keyboard events, and we listen whole document
+//big object and includes events
+document.addEventListener('keydown', function(e){ //e stands for event
+  console.log(e.key)
+  if (e.key==='Escape' && !modal.classList.contains('hidden')){
+    // if(!modal.classList.contains('hidden')){
+    //   closeModal();
+    // }
+    closeModal()
+  } 
+}) 
+}
 
-    } else if (guess === secretNumber) {
-        //we use our function displayMessage and pass text inside string
-        displayMessage('Correct number')
-
-        document.querySelector('.number').textContent =
-            secretNumber;
-
-        document.querySelector('body').style.
-            backgroundColor = '#60B347';
-
-        document.querySelector('.number').style.width = '30rem'
-        if (score > highscore) {
-            highscore = score;
-            document.querySelector('.highscore').textContent = highscore;
-        }
-    }
-    //WHEN GUESS IS WRONG
-
-    else if (guess !== secretNumber) {
-        if (score > 1) {
-            displayMessage(guess > secretNumber ? 'Too high' : "Too Low")
-            score--;
-            document.querySelector('.score').textContent = score;
-        } else {
-
-            displayMessage('You lost the game')
-            document.querySelector('.score').textContent = 0;
-        }
-    }
-})
-
-// n here we want to use again event listener but on button again and make refresh our page, and back all how it was before
-document.querySelector('.again').addEventListener('click', function () {
-
-    score = 20;
-    secretNumber = Math.trunc(Math.random() * 20) + 1;
-    displayMessage("Start guessing . . .")
-    document.querySelector('.score').textContent = score;
-    document.querySelector('.number').textContent = "?"
-    document.querySelector('.guess').value = '';
-    document.querySelector('body').style.backgroundColor = "#222";
-    document.querySelector('.number').style.width = "15rem"
-})
